@@ -128,8 +128,8 @@ with FullscreenWindow(sys.stdout) as w:
 
 				step()
 
-			# XXX: Find a non-blocking solution
-			c = input_generator.next()
+			# XXX: Find a non-blocking solution, my eyes are bleeding...
+			c = input_generator.send(0.001)
 #
 			# Key bindings
 			if c == "w" and direction != "down":
