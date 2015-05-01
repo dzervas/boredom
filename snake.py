@@ -37,6 +37,13 @@ def step():
 	else:
 		return
 
+	# Check to see if out of bounds or ate yourself
+	try:
+		if result[hcoor[0], hcoor[1]][0] == theme[1]:
+			sys.exit()
+	except IndexError:
+		sys.exit()
+
 	if result[hcoor[0], hcoor[1]][0] == theme[3]:
 		apple()
 		tdir = None
