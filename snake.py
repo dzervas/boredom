@@ -8,7 +8,7 @@ import sys
 
 # Body and head ascii form of the snake and apple.
 	# head, body, apple, space
-theme = [ ' ', 'o', '0', '@' ]
+theme = [ ' ', fmtstr('o', "green", "on_green"), fmtstr('0', "blue", "on_green"), fmtstr('@', "red") ]
 sspeed = 3
 acc = 1
 
