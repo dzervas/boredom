@@ -1,4 +1,4 @@
-import numpy
+from multiprocessing.dummy import Pool as ThreadPool
 
 # Check if the sentence is the same backwards
 def check(sentence):
@@ -14,30 +14,34 @@ def check(sentence):
 	return True
 
 # Recursive function that generates sentences of given length
-def generate(base):
-	global wordlist, nolist, limit
+def generate(base, nolist = []):
+	global wordlist, limit
+
 	for word in wordlist:
+		now = base + " " + word
+		wordcount = now.count(" ")
+
+		if wordcount == 1:
+			nolist.append(base)
+
 		if word in nolist:
 			continue
 
-		now = base + " " + word
 		if check(now):
 			print now
 
-		if now.count(" ") < limit:
+		if wordcount < limit:
 			nolist.append(word)
-			generate(now)
+			generate(now, nolist)
 			nolist.pop()
 
 wordlist = []
-nolist = []
-limit = 1
+limit = 2
+threads = 5
 
 with open("wordlist.txt", "r") as f:
 	for line in f:
 		wordlist.append(line.strip())
 
-	# We do not want single word sentences, so do the first word loop outside
-	for word in wordlist:
-		nolist[0] = word
-		generate(word)
+pool = ThreadPool(threads)
+pool.map(generate, wordlist)
