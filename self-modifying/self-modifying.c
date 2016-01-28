@@ -6,6 +6,7 @@
 #include <stdint.h>
 
 /*
+from readelf -a <executable>
 f definition:
 00000000004005e6 <f>:
 	4005e6		55			push   %rbp
