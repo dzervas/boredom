@@ -39,7 +39,7 @@ wordlist = []
 limit = 2
 threads = 5
 
-with open("wordlist.txt", "r") as f:
+with open("/usr/share/dict/cracklib-small", "r") as f:
 	for line in f:
 		wordlist.append(line.strip())
 
