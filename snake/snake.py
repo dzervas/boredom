@@ -8,9 +8,9 @@ import sys
 
 # Body and head ascii form of the snake and apple.
 	# head, body, apple, space
-theme = [ ' ', fmtstr('o', "green", "on_green"), fmtstr('0', "blue", "on_green"), fmtstr('@', "red") ]
-sspeed = 3
-acc = 1
+theme = [ u" ", fmtstr(u"o", "green", "on_green"), fmtstr(u"0", "blue", "on_green"), fmtstr(u"@", "red") ]
+sspeed = 10
+acc = 2
 
 # Moves the snake one step
 # hcoor: Coordinates of the snake's head. [row, column]
