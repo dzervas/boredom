@@ -24,11 +24,13 @@ void f() {
 }
 
 void g() {
-	printf("Hello World! :)\n");
-	printf("second line!\n");
+	puts("Hello from G! :)\n");
 }
 
-void end() {}
+void end() {
+	puts("Hello World! :)\n");
+	puts("Hello second line! :)\n");
+}
 
 int main() {
 	unsigned long int *p;
@@ -42,9 +44,9 @@ int main() {
 	mprotect(page, getpagesize(), PROT_READ | PROT_WRITE | PROT_EXEC);
 	mprotect(page, getpagesize(), PROT_READ | PROT_WRITE | PROT_EXEC);
 
-	printf("%zx\n", *p);
+	printf("F location: %zx\nG location: %zx\nend location: %zx\n", f, g, end);
 	f();
-	memcpy((f+10), *g, sizeof(unsigned long int));
+	memcpy((f+10), g, sizeof(unsigned long int));
 	f();
 
 	return 0;
