@@ -1,6 +1,6 @@
 import math
 
-print "Give me a number: "
+print("Give me a number: ")
 number = input()
 
 def check(a, b):
